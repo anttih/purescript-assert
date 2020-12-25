@@ -1,7 +1,7 @@
 
 local M = {}
 
-local function M.assertImpl(message)
+function M.assertImpl(message)
   return function (success)
     return function ()
       if not success then error(message) end
@@ -9,7 +9,7 @@ local function M.assertImpl(message)
   end
 end
 
-local function M.checkThrows(fn)
+function M.checkThrows(fn)
   return function ()
     local status, result = pcall(fn)
     return not status
